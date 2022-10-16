@@ -1,0 +1,21 @@
+#include <iostream>
+#include <math.h>
+#include <Windows.h>
+
+using namespace std;
+
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	double x;
+	cout << "Введит x: ";
+	cin >> x;
+
+	cout << "y = " << log2(x) << endl;
+
+	system("pause");
+
+	return 0;
+}
