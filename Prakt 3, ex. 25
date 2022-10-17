@@ -30,7 +30,7 @@ int main()
 		cout << "|" << endl;
 	}
 	cout << endl;
-
+	cout << "Номера максимальных элементов в каждой строке: " << endl;
 	int maxI = 0, maxJ = 0;
 	for (int i = 0; i < n; i++)
 	{
@@ -39,11 +39,13 @@ int main()
 		{
 			if (a[i][j] > max)
 			{
+				max = a[i][j];
 				maxJ = j;
 			}
 		}
-		cout << maxJ;
+		cout << maxJ << " ";
 	}
+	cout << endl;
 	system("pause");
 	return 0;
 }
