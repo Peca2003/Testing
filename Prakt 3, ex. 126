@@ -10,17 +10,11 @@ int main()
 
 	const int M = 3;
 	const int K = 4;
-	int a[M][K]{};
-
-	cout << "Введите элементы матрицы: " << endl;
-	for (int i = 0; i < M; i++)
-	{
-		for (int j = 0; j < K; j++)
-		{
-			cin >> a[i][j];
-		}
-	}
-	cout << endl;
+	int a[M][K] = {
+		{ 16, 3, 9, 15 },
+		{ 11, 5, 21, 0 },
+		{ 23, 4, 61, 12}
+	};
 	cout << "Матрица имеет вид: " << endl;
 	for (int i = 0; i < M; i++)
 	{
@@ -38,20 +32,22 @@ int main()
 		{
 			sum += a[i][j];
 		}
-		a[M + 1][j] = sum;
-		sum = 0;
 		cout << "\t - столбец " << j + 1 << ": " << sum << endl;
 	}
-	int max = a[M + 1][1];
-	int k;
+	int max_sum = 0, col = 0;
 	for (int j = 0; j < K; j++)
 	{
-		if (a[M + 1][j] > sum)
+		for (int i = 0; i < M; i++)
 		{
-			k = j;
+			sum += a[i][j];
+		}
+		if (sum > max_sum)
+		{
+			max_sum = sum;
+			col = j + 1;
 		}
 	}
-	cout << "Номер столбца с максимальной суммой элементов: "  << k;
+	cout << "Столбец с максимальной суммой элементов: " << col << endl;
 	system("pause");
 	return 0;
 }
