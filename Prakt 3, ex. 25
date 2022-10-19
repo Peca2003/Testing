@@ -8,22 +8,19 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	const int n = 4, m = 5;
-	int a[n][m]{};
+	
+	int a[4][5] = {
+		{ 4, 5, 66, -7, 6 },
+		{ 1, -5, 33, 21, 71 },
+		{ 43, 32, -12, 4, 9 },
+		{ 21, 7, -8, 2, -11 }
+	};
 
-	srand(time(0));
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < m; j++)
-		{
-			a[i][j] = 10 + rand() % 41;
-		}
-	}
 	cout << "Прямоугольная матрицы имеет вид: " << endl;
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		cout << "| ";
-		for (int j = 0; j < m; j++)
+		for (int j = 0; j < 5; j++)
 		{
 			cout << a[i][j] << " ";
 		}
@@ -31,16 +28,16 @@ int main()
 	}
 	cout << endl;
 	cout << "Номера максимальных элементов в каждой строке: " << endl;
-	int maxI = 0, maxJ = 0;
-	for (int i = 0; i < n; i++)
+	int maxJ = 0;
+	for (int i = 0; i < 4; i++)
 	{
-		int max = a[i][0];
-		for (int j = 1; j < m; j++)
+		int max = a[0][0];
+		for (int j = 0; j < 5; j++)
 		{
 			if (a[i][j] > max)
 			{
 				max = a[i][j];
-				maxJ = j;
+				maxJ = j + 1;
 			}
 		}
 		cout << maxJ << " ";
